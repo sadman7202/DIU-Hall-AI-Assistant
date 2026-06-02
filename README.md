@@ -346,12 +346,12 @@ Confirm Exit marks the gate pass as used.
                 │                               │
                 ▼                               ▼
 ┌──────────────────────────────┐     ┌───────────────────────────────┐
-│        PostgreSQL DB          │     │        Upload Storage          │
+│        PostgreSQL DB         |     |        Upload Storage         |
 │                              │     │                               │
-│ - users                      │     │ - User signatures              │
-│ - gate_passes                │     │ - Gate-pass PDFs               │
-│ - notices                    │     │ - Gate-pass QR codes           │
-│ - complaints                 │     │ - Signature assets             │
+│ - users                      │     │ - User signatures             │
+│ - gate_passes                │     │ - Gate-pass PDFs              │
+│ - notices                    │     │ - Gate-pass QR codes          │
+│ - complaints                 │     │ - Signature assets            │
 │ - notifications              │     └───────────────────────────────┘
 │ - hall_rules                 │
 │ - chat_sessions              │
@@ -415,13 +415,14 @@ DIU_Hall_AI_Assistant_and_Automation_Platfrom
 │   │
 │   ├── assets
 │   │   └── signatures
+│   │       ├── admin_signature.png
 │   │       └── checker_signature.png
 │   │
 │   ├── uploads
 │   │   ├── signatures
 │   │   │   └── students
 │   │   ├── gate_pass_pdfs
-│   │   └── gate_pass_qr_codes
+│   │   └── gate_pass_qr_codes (created at runtime)
 │   │
 │   ├── Dockerfile
 │   └── requirements.txt
@@ -457,6 +458,7 @@ DIU_Hall_AI_Assistant_and_Automation_Platfrom
 │
 ├── docker-compose.yml
 ├── README.md
+├── .env
 ├── .env.example
 └── .gitignore
 ```
@@ -1207,6 +1209,8 @@ Generated QR codes are stored under:
 backend/uploads/gate_pass_qr_codes
 ```
 
+Note: the QR code directory is created when the first approval generates a QR code.
+
 Uploaded user signatures are stored under:
 
 ```text
@@ -1222,6 +1226,7 @@ backend/assets/signatures
 Expected asset files:
 
 ```text
+admin_signature.png
 checker_signature.png
 ```
 

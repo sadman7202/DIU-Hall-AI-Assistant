@@ -65,4 +65,4 @@ Defined in [docker-compose.yml](docker-compose.yml).
 ## Optional Environment Dependencies
 
 - SMTP credentials for email notifications.
-- Public URLs for frontend/backend (used for email links and CORS).
+- Public URLs for frontend/backend (used for email links and CORS)
